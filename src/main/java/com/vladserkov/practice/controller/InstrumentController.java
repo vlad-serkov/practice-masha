@@ -12,7 +12,7 @@ import java.util.Map;
 
 @RestController
 @AllArgsConstructor
-@RequestMapping("Instruments")
+@RequestMapping("instruments")
 public class InstrumentController {
     private InstrumentService InstrumentService;
 
@@ -23,8 +23,8 @@ public class InstrumentController {
     }
 
     @PostMapping
-    public String save(@RequestBody Instrument Instrument) throws SerialNotFoundException {
-        return InstrumentService.save(Instrument);
+    public String save(@RequestBody Instrument instrument) throws SerialNotFoundException {
+        return InstrumentService.save(instrument);
     }
 
     @DeleteMapping("/{serial}")
@@ -32,8 +32,8 @@ public class InstrumentController {
         return InstrumentService.deleteById(serial);
     }
     @PutMapping("/{serial}")
-    public String update(@PathVariable int serial, @RequestBody Instrument Instrument ) throws SerialNotFoundException {
-        return InstrumentService.update(serial, Instrument);
+    public String update(@PathVariable int serial, @RequestBody Instrument instrument ) throws SerialNotFoundException {
+        return InstrumentService.update(serial, instrument);
     }
 
     @GetMapping("/{serial}")
